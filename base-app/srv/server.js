@@ -8,9 +8,4 @@ if (cds.env.profiles.includes('development')) {
   const { alice, bob } = cds.requires.auth.users
   alice.roles = ['admin','support']
   bob.roles = ['support']
-
-  // Extend ProcessorService impl with custom handlers from alert-notifications.js
-  // eslint-disable-next-line no-global-assign
-  require = id => {try{ return module.require(id) } catch(e) { if (e.code !== 'MODULE_NOT_FOUND') throw e }}
-  cds.once("served", ()=> require('./alert-notifications')?.prototype.init.call(cds.services.ProcessorService))
 }
