@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "@sap/cds": ">=9",
-    "express": "^4"
+    "express": "^4",
+    "predefined-ext-fields-plugin": "file:./predefined-ext-fields-plugin"
   },
   "devDependencies": {
     "@cap-js/cds-test": "*",
