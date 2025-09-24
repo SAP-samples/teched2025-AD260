@@ -1,12 +1,12 @@
-# Session ID - Session Title
+# AD260 - UI Extensibility on top of CAP/RAP: What's in it for you?
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2025 session called Session ID - Session Title.  
+This repository contains the material for the SAP TechEd 2025 session called AD260 - UI Extensibility on top of CAP/RAP: What's in it for you?  
 
 ## Overview
 
-This session introduces attendees to...
+This session introduces attendees to extensibility options for key users and developers.
 
 ## Requirements
 

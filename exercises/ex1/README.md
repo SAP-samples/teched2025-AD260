@@ -34,6 +34,28 @@ There is another service in `base-app/srv/admin-service.cds`. Admins are allowed
 #### Applications
 The very simple domain and service model is enough to provide a full running CAP application including the database and the server. On top of this, we have defined a `Fiori Elements UI`. This can be found in `base-app/app/incidents`. In `base-app/app/incidents/annotations.cds` you will find the annotations needed to define the application.
 
+
+#### Predefined extension fields
+The predefined extension fields are provided through a plugin, which you can find in `./predefined-ext-fields-plugin`. The implementation is in the `cds-plugin.js` file.
+It looks for `entities` in the CAP data model, which have an annotation `@extensible` and adds a set of predefined fields to them.
+As we annotated the entity `Customers` in `base-app/db/schema.cds` with `@extensible`:
+```cds
+entity Customers @(extensible) : managed {
+  key ID         : String;
+  firstName      : String;
+...
+}
+```
+and added the plugin as a dependency in our `package.json`:
+```json
+ "dependencies": {
+    ...
+    "predefined-ext-fields-plugin": "file:./predefined-ext-fields-plugin"
+  },
+```
+the fields are included.
+
+
 So let's go ahead and try the application:
 
 
@@ -42,6 +64,18 @@ In a terminal window, execute the cds watch command. This will start your applic
 ```shell
 cds watch base-app
 ```
+
+In the section `Web Applications` click on `/incidents/webapp`.
+Click on one of the incidents in the table to see the incident details.
+Click on edit to edit the incident and save the changed incident.
+
+With a very simple data model and service definition we have a fully running application.
+
+Now let's have a look at the extension fields.
+Navigate back to the Welcome index page (http://localhost:4004/)
+
+In the section `Service Endpoints` under `/odata/v4/admin` click on `Customers`.
+You can see the predefined extension fields, such as `predef_field_1`, `predef_field_2`, and `predef_field_3`, listed for each customer.
 
 ## Exercise 1.3 Enter the Adapt UI mode
 
