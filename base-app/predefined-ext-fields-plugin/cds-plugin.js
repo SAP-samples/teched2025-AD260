@@ -8,13 +8,15 @@ cds.on('compile.to.dbx', csn => { DEBUG?.('on','compile.to.dbx'); addExtensionFi
 
 
 addExtensionFields = csn => {
+  // make sure model is only enhanced once
   const meta = (csn.meta ??= {})
-
   if (meta._enhanced_for_predefined_extension_fields) return
 
   for (const [name, def] of Object.entries(csn.definitions)) {
+    // only for extensible entities
     if (def.kind === 'entity' && def['@extensible']) {
       console.log(`Extending ${name}`)
+      // add predefined extension fields
       def.elements['predef_field_1'] = { type: 'cds.String', length: 10 }
       def.elements['predef_field_2'] = { type: 'cds.String', length: 10 }
       def.elements['predef_field_3'] = { type: 'cds.String', length: 10 }
