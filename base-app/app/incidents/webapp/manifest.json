@@ -63,7 +63,8 @@
                 "sap.m": {},
                 "sap.ui.core": {},
                 "sap.ushell": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.ui.fl": {}
             }
         },
         "contentDensities": {
@@ -131,6 +132,18 @@
                                         "type": "ResponsiveTable"
                                     }
                                 }
+                            },
+                            "content": {
+                                "header": {
+                                    "actions": {
+                                        "adapt-ui": {
+                                            "press": "ns.incidents.ext.controller.ListReport.onAdaptUi",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Adapt UI"
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -157,11 +170,16 @@
                         }
                     }
                 }
-            }
+            },
+            "config": {}
         },
         "extends": {
             "extensions": {
-                "sap.ui.controllerExtensions": {}
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ListReport.ListReportController": {
+                        "controllerName": "ns.incidents.ext.controller.ListReport"
+                    }
+                }
             }
         }
     },
