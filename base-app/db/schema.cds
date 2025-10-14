@@ -6,7 +6,7 @@ namespace sap.capire.incidents;
  * Customers using products sold by our company.
  * Customers can create support Incidents.
  */
-entity Customers @(extensible) : managed {
+entity Customers : managed {
   key ID         : String;
   firstName      : String;
   lastName       : String;
@@ -29,7 +29,7 @@ entity Addresses : cuid, managed {
 /**
  * Incidents created by Customers.
  */
-entity Incidents : cuid, managed {
+entity Incidents @(extensible) : cuid, managed {
   customer       : Association to Customers;
   title          : String @title: 'Title';
   urgency        : Association to Urgency default 'M';
