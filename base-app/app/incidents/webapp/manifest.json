@@ -136,8 +136,8 @@
                             "content": {
                                 "header": {
                                     "actions": {
-                                        "adapt-ui": {
-                                            "press": "ns.incidents.ext.controller.ListReport.onAdaptUi",
+                                        "adaptUi": {
+                                            "press": ".extension.ns.incidents.ext.controller.InicdentsList.onAdaptUi",
                                             "visible": true,
                                             "enabled": true,
                                             "text": "Adapt UI"
@@ -177,7 +177,7 @@
             "extensions": {
                 "sap.ui.controllerExtensions": {
                     "sap.fe.templates.ListReport.ListReportController": {
-                        "controllerName": "ns.incidents.ext.controller.ListReport"
+                        "controllerName": "ns.incidents.ext.controller.InicdentsList"
                     }
                 }
             }
