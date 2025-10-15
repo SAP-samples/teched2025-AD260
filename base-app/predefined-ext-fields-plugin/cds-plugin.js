@@ -17,9 +17,9 @@ addExtensionFields = csn => {
     if (def.kind === 'entity' && def['@extensible']) {
       console.log(`Extending ${name}`)
       // add predefined extension fields
-      def.elements['predef_field_1'] = { type: 'cds.String', length: 10 }
-      def.elements['predef_field_2'] = { type: 'cds.String', length: 10 }
-      def.elements['predef_field_3'] = { type: 'cds.String', length: 10 }
+      def.elements['predef_field_1'] = { type: 'cds.String', length: 255 }
+      def.elements['predef_field_2'] = { type: 'cds.String', length: 255 }
+      def.elements['predef_field_3'] = { type: 'cds.String', length: 255 }
     }
   }
 
