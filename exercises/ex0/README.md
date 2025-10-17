@@ -1,26 +1,32 @@
-# Level 1 Heading
+# Exercise 0 - Setup
 
-In this exercise, you will...
+In this exercise, you will clone the repository and set up your development environment.
 
-## Level 2 Heading
+## Prerequisites
 
-After completing these steps you will have....
+Make sure you have the following installed:
+- Git
+- Visual Studio Code
 
-1.	Click here.
-<br>![](/exercises/ex0/images/00_00_0010.png)
+## Steps
 
-2.	Insert this code.
-``` abap
- DATA(params) = request->get_form_fields(  ).
- READ TABLE params REFERENCE INTO DATA(param) WITH KEY name = 'cmd'.
-  IF sy-subrc <> 0.
-    response->set_status( i_code = 400
-                     i_reason = 'Bad request').
-    RETURN.
-  ENDIF.
-```
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/SAP-samples/teched2025-AD260.git
+   ```
+
+2. Navigate to the cloned directory:
+   ```bash
+   cd teched2025-AD260
+   ```
+
+3. Open the project in Visual Studio Code:
+   ```bash
+   code .
+   ```
 
 ## Summary
 
-Now that you have ... 
-Continue to - [Exercise 1 - Exercise 1 Description](../ex1/README.md)
+You have successfully cloned the repository and opened it in VS Code. You're now ready to start working with the CAP application.
+
+Continue to - [Exercise 1 - Explore and run the app](../ex1/README.md)
