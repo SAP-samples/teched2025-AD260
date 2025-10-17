@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@cap-js/cds-test": "*",
-    "@cap-js/sqlite": ">=1"
+    "@cap-js/sqlite": ">=2"
   },
   "scripts": {
     "watch": "cds watch",
