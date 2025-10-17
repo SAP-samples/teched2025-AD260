@@ -31,11 +31,11 @@ The very simple domain and service model is enough to provide a full running CAP
 #### Predefined extension fields
 The predefined extension fields are provided through a plugin, which you can find in `./predefined-ext-fields-plugin`. The implementation is in the `cds-plugin.js` file.
 It looks for `entities` in the CAP data model, which have an annotation `@extensible` and adds a set of predefined fields to them.
-As we annotated the entity `Customers` in `base-app/db/schema.cds` with `@extensible`:
+As we annotated the entity `Incidents` in `base-app/db/schema.cds` with `@extensible`:
 ```cds
-entity Customers @(extensible) : managed {
-  key ID         : String;
-  firstName      : String;
+entity Incidents @(extensible) : cuid, managed {
+  customer       : Association to Customers;
+  title          : String @title: 'Title';
 ...
 }
 ```
