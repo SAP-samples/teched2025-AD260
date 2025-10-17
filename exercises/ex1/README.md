@@ -2,6 +2,13 @@
 
 As the basis for our exercise, we use the Incident Management application. Let's have a quick look at it!
 
+## Prerequisites
+
+Make sure you have the following installed:
+- Node.js (version 18 or higher)
+- npm
+- SAP Cloud Application Programming Model CLI: `npm install -g @sap/cds-dk`
+
 ## 1.1 Have a quick look at the base app
 
 
@@ -50,26 +57,26 @@ the fields are included.
 
 ## 1.2 Running the Application
 
-So let's go ahead and try the application:
+Now let's run the application and explore its functionality:
 
+1. **Start the application**: Open a terminal in the project root directory and execute:
+   ```shell
+   cds watch base-app
+   ```
+   This will start your application locally and automatically open your browser to `http://localhost:4004`.
 
-In a terminal window, execute the cds watch command. This will start your application locally.
+2. **Explore the Incidents application**:
+   - In the **Web Applications** section, click on `/incidents/webapp`
+   - You should see a list of incidents in a table format
+   - Click on one of the incidents to view its details
+   - Click **Edit** to modify the incident, make a change, and **Save** it
 
-```shell
-cds watch base-app
-```
+3. **View the extension fields**:
+   - Navigate back to the Welcome page at `http://localhost:4004`
+   - In the **Service Endpoints** section, under `/odata/v4/admin`, click on **Customers**
+   - You'll see the predefined extension fields (`predef_field_1`, `predef_field_2`, `predef_field_3`) listed for each customer
 
-In the section `Web Applications` click on `/incidents/webapp`.
-Click on one of the incidents in the table to see the incident details.
-Click on edit to edit the incident and save the changed incident.
-
-With a very simple data model and service definition we have a fully running application.
-
-Now let's have a look at the extension fields.
-Navigate back to the Welcome index page (http://localhost:4004/)
-
-In the section `Service Endpoints` under `/odata/v4/admin` click on `Customers`.
-You can see the predefined extension fields, such as `predef_field_1`, `predef_field_2`, and `predef_field_3`, listed for each customer.
+With just a simple data model and service definition, we have a fully functional CAP application!
 
 ## Summary
 
