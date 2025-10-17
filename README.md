@@ -19,8 +19,9 @@ Provide the exercise content here directly in README.md using [markdown](https:/
 - [Exercise 0 - Setup](exercises/ex0/)
 - [Exercise 1 - A Quick Look at the Base Application and Running the Application](exercises/ex1/)
 - [Exercise 2 - Flexibility Personalization and Key User Functionality](exercises/ex2/)
-- [Exercise 3 - Exercise 3 Description](exercises/ex3/)
-- [Exercise 4 - Exercise 4 Description](exercises/ex4/)
+- [Exercise 3 - Testing the Customer Flow](exercises/ex3/)
+- [Exercise 4 - Creating the Extension](exercises/ex4/)
+- [Exercise 5 - Extending the Model](exercises/ex5/)
 
   
 **OR** Link to the Tutorial Navigator for example...
