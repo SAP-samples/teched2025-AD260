@@ -10,23 +10,19 @@ This session introduces attendees to extensibility options for key users and dev
 
 ## Requirements
 
-The requirements to follow the exercises in this repository are...
+Everything required for the tutorials is installed on the provided machines.
+
+The Prerequisite sections in the exercises are informational only, nothing has to be installed to run the tutorials.
 
 ## Exercises
 
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
 
 - [Exercise 0 - Setup](exercises/ex0/)
 - [Exercise 1 - A Quick Look at the Base Application and Running the Application](exercises/ex1/)
-- [Exercise 2 - Flexibility Personalization and Key User Functionality](exercises/ex2/)
-- [Exercise 3 - Testing the Customer Flow](exercises/ex3/)
-- [Exercise 4 - Creating the Extension](exercises/ex4/)
-- [Exercise 5 - Extending the Model](exercises/ex5/)
-
-  
-**OR** Link to the Tutorial Navigator for example...
-
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
+- [Exercise 2 - Enabling Key User Extensibility: Flexibility Personalization and Key User Functionality](exercises/ex2/)
+- [Exercise 3 - Enabling Key User Extensibility: Testing the Customer Flow](exercises/ex3/)
+- [Exercise 4 - Developer Extensibility: Creating the Extension](exercises/ex4/)
+- [Exercise 5 - Developer Extensibility: Extending the Model](exercises/ex5/)
 
 **IMPORTANT**
 
