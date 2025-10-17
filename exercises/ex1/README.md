@@ -1,15 +1,9 @@
-# Exercise 1 - Exercise 1 Description
-
-In this exercise, we will use key user extensibility in order to add an already existing field to the Fiori Elements UI.
-
-## Exercise 1.1 Key User Enablement
-
-
-## Exercise 1.2 Run the application
-
-### Have a quick look at the base app
+# Exercise 1 - A Quick Look at the Base Application and Running the Application
 
 As the basis for our exercise, we use the Incident Management application. Let's have a quick look at it!
+
+## 1.1 Have a quick look at the base app
+
 
 #### The domain model
 Open `base-app/db/schema.cds`. Here we find the domain model of the application.
@@ -21,7 +15,6 @@ The `Incidents` entity represents incidents created by customers, with fields fo
 The Status and Urgency entities represent the status and urgency of incidents. Both are of type CodeList making it easy to use them as value helps.
 
 The aspects `cuid` and `managed` from `@sap/cds/common` are used, which provided commonly needed fields with some underlying functionality. The `cuid` feature provides a unique identifier for an entity, while managed adds common administrative fields such as `createdAt` and `createdBy`.
-
 
 #### Services
 Open `base-app/srv/processor-service.cds`. Here we find one of the services of our application.
@@ -55,6 +48,7 @@ and added the plugin as a dependency in our `package.json`:
 ```
 the fields are included.
 
+## 1.2 Running the Application
 
 So let's go ahead and try the application:
 
@@ -77,17 +71,8 @@ Navigate back to the Welcome index page (http://localhost:4004/)
 In the section `Service Endpoints` under `/odata/v4/admin` click on `Customers`.
 You can see the predefined extension fields, such as `predef_field_1`, `predef_field_2`, and `predef_field_3`, listed for each customer.
 
-## Exercise 1.3 Enter the Adapt UI mode
-
-
-## Exercise 1.4 Add & rename the field
-
-## Exercise 1.4 Test the application
-
-
 ## Summary
 
-You've now added a field, which was made available in advance as a predefined extension field. Adding a field this way has the advantage of being able to update content without a redeployment to the database or even a restart of the CAP application, as the underlying data structure and CAP domain and service model do not change
+You've now added fields, by making them available in advance as a predefined extension field. Adding a field this way has the advantage of being able to update content without a redeployment to the database or even a restart of the CAP application, as the underlying data structure and CAP domain and service model do not change.
 
-Continue to - [Exercise 2 - Exercise 2 Description](../ex2/README.md)
-
+Continue to - [Flexibility Personalization and Key User Functionality](../ex2/README.md)
