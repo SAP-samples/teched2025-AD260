@@ -5,7 +5,7 @@ As the basis for our exercise, we use the Incident Management application. Let's
 ## Prerequisites
 
 Make sure you have the following installed:
-- Node.js (version 18 or higher)
+- Node.js (version 20 or higher)
 - npm
 - SAP Cloud Application Programming Model CLI: `npm install -g @sap/cds-dk`
 
