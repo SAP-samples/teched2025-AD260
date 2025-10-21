@@ -36,7 +36,7 @@ Create a new folder `myExtension` in the location of your choice.
      "version": "1.0.0",
      "dependencies": {
        "@sap/cds": "^9",
-       "@sap/cds-oyster": "^0.1.0",
+       "@sap/cds-oyster": "^0.2.0",
        "express": "^4"
      },
      "engines": {
@@ -47,32 +47,8 @@ Create a new folder `myExtension` in the location of your choice.
      },
      "cds": {
        "requires": {
-         "code-extensibility": {
-           "runtime": "debug",
-           "maxTime": 1000,
-           "maxMemory": 4
-         },
-         "auth": {
-           "[development]": {
-             "users": {
-               "alice": {
-                 "tenant": "t1",
-                 "roles": [
-                   "support",
-                   "admin",
-                   "cds.ExtensionDeveloper",
-                   "cds.Subscriber"
-                 ]
-               },
-               "bob": {
-                 "roles": [
-                   "support"
-                 ]
-               }
-             }
-           }
+         "code-extensibility": true
          }
-       }
      },
      "scripts": {
        "start": "cds-serve"
