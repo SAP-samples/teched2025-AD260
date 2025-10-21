@@ -19,7 +19,7 @@ After completing this exercise, you will be able to:
 
 ## Steps
 
-### Step 1: Implementing the first action
+### Step 1: Implementing the action
 
 In an existing extension project, code extensions can be created within the `srv` folder following a strict naming convention, with the service name as top level folder and service entity name as second level folder. The filename must follow the format of `WHEN-dash-WHAT.js`.
 
@@ -46,7 +46,7 @@ Just like in a normal CAP application, CDS-Oyster provides the typical API (with
 
 In addition, a subset of the CDS QL is supported, as well as calling existing actions and emitting events.
 
-This first event handler is using `req.subject` (which represents a valid CQN snippet to identify a single entity instance) to update precisely one entry in the Incidents table. This is a nice convenience to avoid constructing where clauses using `req.data.Incidents_ID` and less error prone.
+This event handler is using `req.subject` (which represents a valid CQN snippet to identify a single entity instance) to update precisely one entry in the Incidents table. This is a nice convenience to avoid constructing where clauses using `req.data.Incidents_ID` and less error prone.
 
 Notice the general nature of CDS-Oyster event handlers:
 
