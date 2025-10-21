@@ -23,6 +23,7 @@ The Prerequisite sections in the exercises are informational only, nothing has t
 - [Exercise 3 - Enabling Key User Extensibility: Testing the Customer Flow](exercises/ex3/)
 - [Exercise 4 - Developer Extensibility: Creating the Extension](exercises/ex4/)
 - [Exercise 5 - Developer Extensibility: Extending the Model](exercises/ex5/)
+- [Exercise 6 - Developer Extensibility: Bound Actions](exercises/ex6/)
 
 **IMPORTANT**
 
