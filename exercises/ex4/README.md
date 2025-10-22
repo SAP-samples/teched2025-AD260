@@ -89,6 +89,7 @@ This moves the base model from `.base` to a folder in `node_modules` according t
      status: String(8) @title: 'Customer Status' default 'Silver';
    };
    ```
+> **Note**: Adding new fields to an entity will require a database deployment. The previously shown predefined extension fields already exist on the database and are repurposed later - without the need to redeploy.
 
 ### Step 4: Test the Extension
 
