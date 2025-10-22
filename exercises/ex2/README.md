@@ -146,7 +146,9 @@ To allow this, SAPUI5 has to be instructed to use a different storage. Instead o
 
 * Copy the `index.html`and name it `index_local.html`.
 
-* Then adapt in the newly created file the `data-sap-ui-flexibilityServices` to `'[{"connector":"SessionSessionConnector"]'`.
+* Then adapt in the newly created file the `data-sap-ui-flexibilityServices` to `'[{"connector":"SessionStorageConnector"}]'`.
+
+* Stop the CAP server with `CTRL` + `C` and start it again.
 
 * After the addition of the file, the localhost now shows another application.
 
