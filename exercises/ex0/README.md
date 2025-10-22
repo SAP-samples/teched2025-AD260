@@ -10,23 +10,29 @@ Make sure you have the following installed:
 
 ## Steps
 
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/SAP-samples/teched2025-AD260.git
+1. Open Visual Studio Code
+
+2. On the Welcome screen, click on **Clone Git Repository**
+
+3. Enter the repository URL:
+   ```
+   https://github.com/SAP-samples/teched2025-AD260.git
    ```
 
-2. Navigate to the cloned directory:
-   ```bash
-   cd teched2025-AD260
-   ```
+4. Select a folder location to clone the repository
 
-3. Open the project in Visual Studio Code:
+5. When prompted, click **Open** to open the cloned repository in VS Code
+
+6. Open a terminal in VS Code (Terminal > New Terminal)
+
+7. Navigate to the base-app directory and install dependencies:
    ```bash
-   code .
+   cd base-app
+   npm install
    ```
 
 ## Summary
 
-You have successfully cloned the repository and opened it in VS Code. You're now ready to start working with the CAP application.
+You have successfully cloned the repository, installed the dependencies, and opened it in VS Code. You're now ready to start working with the CAP application.
 
 Continue to - [Exercise 1 - Explore and run the app](../ex1/README.md)
