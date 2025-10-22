@@ -1,6 +1,7 @@
 # Exercise 4 - Creating the Extension
 
-In this exercise, you will create an extension project that extends the base incidents application.
+Now, we are changing the perspective. In the previous exercises, you have activated key user extensibility. In the current and following exercises, we turn our single-tenant application into a multi-tenant application.
+A customer can then create an extension for their tenant, which does not affect other customers (tenants).
 
 ## Prerequisites
 
@@ -10,6 +11,7 @@ In this exercise, you will create an extension project that extends the base inc
 ## Learning Objectives
 
 After completing this exercise, you will be able to:
+- Enabling multi-tenancy in a CAP application
 - Create a CAP extension project
 - Configure the extension to extend a base application
 - Pull the base model from the host application
@@ -17,7 +19,23 @@ After completing this exercise, you will be able to:
 
 ## Steps
 
-### Step 1: Create the Extension Project
+### Step 1: Enable MTX Support in Base Application
+
+First, we need to enable multitenancy (MTX) support in the base application to allow extensions.
+
+1. Stop the currently running server with `CTRL` + `C`
+
+1. Navigate to the base-app directory:
+   ```bash
+   cd base-app
+   ```
+
+2. Add MTX support:
+   ```bash
+   cds add mtx
+   ```
+
+### Step 2: Create the Extension Project
 
 Create a new folder `myExtension` in the location of your choice.
 > [!NOTE]
@@ -65,7 +83,7 @@ Note the important parts:
 - The CDS-OYSTER plugin as dependency
 - Code-extensibility turned on for local testing and debugging
 
-### Step 2: Pull the Base Model
+### Step 3: Pull the Base Model
 
 1. Pull the base model from the running application:
    ```bash
@@ -79,7 +97,7 @@ Note the important parts:
 
 This moves the base model from `.base` to a folder in `node_modules` according to the name given in the `extends` clause of `package.json`.
 
-### Step 3: Create the Extension
+### Step 4: Create the Extension
 
 1. In the `db` folder of the extension project, create a file `extension.cds` with the following content:
    ```cds
@@ -92,7 +110,7 @@ This moves the base model from `.base` to a folder in `node_modules` according t
 > [!NOTE]
 > Adding new fields to an entity will require a database deployment. The previously shown predefined extension fields already exist on the database and are repurposed later - without the need to redeploy.
 
-### Step 4: Test the Extension
+### Step 5: Test the Extension
 
 1. Push this extension to the base application:
    ```bash
@@ -101,7 +119,7 @@ This moves the base model from `.base` to a folder in `node_modules` according t
 
 2. Test it by exploring the AdminService endpoints at `http://localhost:4004`.
 
-### Step 5: Add Testing Convenience
+### Step 6: Add Testing Convenience
 
 To make testing simpler, you can use `cds add http` to create useful testing requests:
 
