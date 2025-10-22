@@ -16,7 +16,7 @@ While on major SAP setups, this storage is already included, customer implementa
 > While multiple major scenarios of SAP are mentioned Multiple scenarios are mentioned to provide you with the insights for your scenarios. 
 > SAP and customer BTP CF offerings provide the key user capabilities by making use of the SAPUI5 flexibility for key users service. How it is done is shown in this exercise.
 
-All productive usage implementations of this storage requires a specific role to entitle a user to change the UI for other users while an authorized user is suficcient to personalize the application (i.e. filter or table personalization).
+All productive usage implementations of this storage requires a specific role to entitle a user to change the UI for other users while an authorized user is sufficient to personalize the application (i.e. filter or table personalization).
 
 > [!WARNING]
 > The SAP portal service on Neo landscapes will be removed.
