@@ -63,7 +63,15 @@ Now let's run the application and explore its functionality:
    ```shell
    cds watch base-app
    ```
-   This will start your application locally and automatically open your browser to `http://localhost:4004`.
+   This will start your application locally and display a link to: `http://localhost:4004`.
+
+   Click on the link to open the browser.
+
+   A popup will appear asking for username and password. Enter the user `alice` and leave the password field empty.
+
+> [!TIP]
+> There are predefined users with predefined roles available in CAP for local testing.
+
 
 2. **Explore the Incidents application**:
    - In the **Web Applications** section, click on `/incidents/webapp`
