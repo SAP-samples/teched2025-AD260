@@ -25,9 +25,6 @@ The Prerequisite sections in the exercises are informational only, nothing has t
 - [Exercise 5 - Developer Extensibility: Extending the Model](exercises/ex5/)
 - [Exercise 6 - Developer Extensibility: Bound Actions](exercises/ex6/)
 
-**IMPORTANT**
-
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
