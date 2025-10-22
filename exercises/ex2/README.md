@@ -65,7 +65,7 @@ An authorization for the key user is done by the role `FlexKeyUser`.
 
 <summary>Cloud Foundry - Stand Alone</summary>
 
-On the BTP CF stand alone application can also make use of SAPUI5 flexibility without relying on an integration within a Fiori Lauchnpad or Workzone service. To do so, the SAPUI5 flexibility for key users service can be used and must be bound as well as requests from clients have to be routed to it.
+On the BTP CF stand alone application can also make use of SAPUI5 flexibility without relying on an integration within a Fiori Launchpad or Workzone service. To do so, the SAPUI5 flexibility for key users service can be used and must be bound as well as requests from clients have to be routed to it.
 
  ℹ️ For a later read! The [product page](https://discovery-center.cloud.sap/serviceCatalog/ui5-flexibility-for-key-users) includes links to the service capabilities as well as developer docu.
 
