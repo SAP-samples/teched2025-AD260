@@ -17,7 +17,7 @@ Open `base-app/db/schema.cds`. Here we find the domain model of the application.
 
 The `Incidents` entity represents incidents created by customers, with fields for customer, title, urgency, status, and a composition of many conversations. Each conversation has an ID, timestamp, author, and message.
 
-`Customers` can create support incidents. It includes fields for ID, first name, last name, e-mail, phone, credit card number, and a composition of many `Addresses`. The name field is calculated from the firstName and lastName fields. Elements can be specified with a calculation expression, in which you can refer to other elements of the same entity.
+`Customers` can create support incidents. This entity contains fields for ID, first name, last name, e-mail, phone, credit card number, and a composition of many `Addresses`. The name field is calculated from the firstName and lastName fields. Elements can be specified with a calculation expression, in which you can refer to other elements of the same entity.
 
 The Status and Urgency entities represent the status and urgency of incidents. Both are of type CodeList making it easy to use them as value helps.
 
