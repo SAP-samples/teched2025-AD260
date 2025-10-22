@@ -20,8 +20,8 @@ After completing this exercise, you will be able to:
 ### Step 1: Create the Extension Project
 
 Create a new folder `myExtension` in the location of your choice.
-
-> **Note**: An **Extension Project** is a normal CAP project and can be run locally just like any other CAP application. The only difference is that such projects do not have their own data model, but pull a `base model` from the host application in order to extend it.
+> [!NOTE]
+> An **Extension Project** is a normal CAP project and can be run locally just like any other CAP application. The only difference is that such projects do not have their own data model, but pull a `base model` from the host application in order to extend it.
 
 1. Using a terminal, navigate to your new folder and run:
    ```bash
@@ -89,7 +89,8 @@ This moves the base model from `.base` to a folder in `node_modules` according t
      status: String(8) @title: 'Customer Status' default 'Silver';
    };
    ```
-> **Note**: Adding new fields to an entity will require a database deployment. The previously shown predefined extension fields already exist on the database and are repurposed later - without the need to redeploy.
+> [!NOTE]
+> Adding new fields to an entity will require a database deployment. The previously shown predefined extension fields already exist on the database and are repurposed later - without the need to redeploy.
 
 ### Step 4: Test the Extension
 
@@ -110,7 +111,8 @@ cds add http
 
 This creates files in the `test/http` folder. If you're using VS Code, the `REST Client` extension allows you to run the requests directly from the editor.
 
-> **Tip**: For testing changes on the data model, the AdminService tests are more convenient since there's no draft support enabled there.
+> [!TIP]
+> For testing changes on the data model, the AdminService tests are more convenient since there's no draft support enabled there.
 
 ## Summary
 
