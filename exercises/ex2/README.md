@@ -6,17 +6,17 @@ In this exercise, we will use key user extensibility in order to add an already 
 
 Key users are end users entitled to adapt the application at runtime for their use case. They can work in a development system or the productive system in a running application without the need to know coding or entering an IDE.
 The enablement itself requires a proper system setup:
-* Having a storage for the adpatation (as well as personalization)
-* Allow the user to acutally enter the mode in which the key user can make the needed changes
+* Having a storage for the adaptation (as well as personalization)
+* Allow the user to actually enter the mode in which the key user can make the needed changes
 
 The storage is strongly dependent on the Setup.
-While on major SAP setups, this storage is already included, customer implementations may need to setup and configure this on their own.
+While on major SAP setups, this storage is already included, customer implementations may need to set up and configure this on their own.
 
 > [!NOTE]
 > While multiple major scenarios of SAP are mentioned Multiple scenarios are mentioned to provide you with the insights for your scenarios. 
 > SAP and customer BTP CF offerings provide the key user capabilities by making use of the SAPUI5 flexibility for key users service. How it is done is shown in this exercise.
 
-All productive usage implementations of this storage requires a specific role to entitle a user to change the UI for other users while an authorized user is sufficient to personalize the application (i.e. filter or table personalization).
+All productive usage implementations of this storage require a specific role to entitle a user to change the UI for other users while an authorized user is sufficient to personalize the application (i.e. filter or table personalization).
 
 > [!WARNING]
 > The SAP portal service on Neo landscapes will be removed.
@@ -73,7 +73,7 @@ An authorization for the key user is done by the role `FlexKeyUser`.
 
 </details>
 
-### Excercise 2.1.1 Define the Storage
+### Exercise 2.1.1 Define the Storage
 
 The first step is keeping personalization as well as other adaptation stored.
 In this exercise we aim for a BTP deployable application and thus use a service on the BTP CF.
@@ -95,7 +95,7 @@ In this exercise we aim for a BTP deployable application and thus use a service 
 
 This allows SAPUI5 to send the data to the correct endpoint.
 
-[!HINT] The URL of the endpoint is defined by the rounting and has to match the route of the bound "SAPUI5 flexibility for key users" service.
+[!HINT] The URL of the endpoint is defined by the routing and has to match the route of the bound "SAPUI5 flexibility for key users" service.
 
 [!WARNING] The correct configuration can be tested to use the `cds watch`, create a filter and which is then "save as". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
 
@@ -134,17 +134,17 @@ While this allows a writing, getting the data on the early application startup a
 
 ```
 
-Now the application is ready to write data as well as retreive the data on an application startup.
+Now the application is ready to write data as well as retrieve the data on an application startup.
 
-### Excercise 2.1.2 Define the Test index.html
+### Exercise 2.1.2 Define the Test index.html
 
-Now that the setup for a deployment is done, it is time to also test the introduced functionality local.
+Now that the setup for a deployment is done, it is time to also test the introduced functionality locally.
 
-To allow this, SAPUI5 has to be instructed to use a different storage. Instead of sending a REST call to write or read content, the browsers session storage can be used.
+To allow this, SAPUI5 has to be instructed to use a different storage. Instead of sending a REST call to write or read content, the browser's session storage can be used.
 
 [!WARNING] The session storage is for (manual and automated) testing only! A session storage is not safe for productive usage. The stored data is clearly visible until the session is closed and can be accessed. 
 
-* Copy the `index.html`and name it `index_local.html`.
+* Copy the `index.html` and name it `index_local.html`.
 
 * Then adapt in the newly created file the `data-sap-ui-flexibilityServices` to `'[{"connector":"SessionStorageConnector"}]'`.
 
@@ -156,9 +156,9 @@ To allow this, SAPUI5 has to be instructed to use a different storage. Instead o
 
 * Open the application and again create a filter. This filter is now part of the local storage and is also persisted between sessions.
 
-[!WARNING] This filter is not part of the development artifacts and will not be deployed. This is soley to test end user behavior and can be used for testing. To run different tests in parallel, the `SessionStorageConnector` is a better option.
+[!WARNING] This filter is not part of the development artifacts and will not be deployed. This is solely to test end user behavior and can be used for testing. To run different tests in parallel, the `SessionStorageConnector` is a better option.
 
-## Excercise 2.2 Adding an Adapt UI Functionality
+## Exercise 2.2 Adding an Adapt UI Functionality
 
 Now that personalization and the storage is working, authorized end users can also adjust the UI to their companies needs.
 
@@ -166,7 +166,7 @@ This is done at runtime in a specific mode.
 
 To enter this mode, the user needs an option to do so.
 
-In this exercise we will add a button and add the needed conding to start this mode and tell it which part of the application is acual adapatble.
+In this exercise we will add a button and add the needed coding to start this mode and tell it which part of the application is actually adaptable.
 
 ### 2.2.1 Adding the Adapt UI Button
 
