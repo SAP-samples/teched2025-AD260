@@ -33,7 +33,7 @@ Now the field is added as a visible element in the Table.
 * Change `predef_field_1` text
 
 
-The field is renamed, but since all occurences of this bound field should be updated, a change was not done on the table itself but on the property which is only interpreted on creation.
+The field is renamed, but since all occurrences of this bound field should be updated, a change was not done on the table itself but on the property which is only interpreted on creation.
 
 * To reflect the changes press `Reload to View Changes`
 
@@ -43,10 +43,10 @@ If a key user is satisfied with the changes, the draft can be promoted to a vers
 
 * Press `activate` (wand icon), provide a name and press `Confirm`.
 
-[!HINT] This was an end to end flow test of the key user capabilties the application now posesses. All these adaptations done with `Adapt UI` is not part of the source code and will not be deployed.
+[!HINT] This was an end-to-end flow test of the key user capabilities the application now possesses. All these adaptations done with `Adapt UI` are not part of the source code and will not be deployed.
 
 ## Summary
 
-The flow is (manual) tested and you have familiar with the flow your end user will experience.
+The flow is (manually) tested and you are familiar with the flow your end user will experience.
 
-Continue to - [Exercise 4 - Exercise 4 Description](../ex4/README.md)
+Continue to - [Exercise 4 - Creating the Extension](../ex4/README.md)
