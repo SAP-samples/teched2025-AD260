@@ -34,8 +34,31 @@ First, we need to enable multitenancy (MTX) support in the base application to a
    ```bash
    cds add mtx
    ```
+### Step 2: Start the server using multi-tenancy
 
-### Step 2: Create the Extension Project
+You can test the setup using three distinct terminal windows. In VS Code we suggest using the split window feature to have all terminals visible simultaneously
+- **Terminal 1**  
+  Run 
+  ```sh
+  cds watch base-app --profile with-mtx
+  ``` 
+  on project root level. It should report running on port **4004**.
+
+- **Terminal 2**  
+  Is needed to run the MTX sidecar using 
+  ```sh
+  cds watch base-app/mtx/sidecar
+  ```
+  This should report for port **4005**. Please keep these two terminals running while testing the setup.
+- In **Terminal 3**  
+  You can subscribe a new tenant t1 for alice using 
+  ```sh
+  cds subscribe t1 --to http://localhost:4005 -u alice:
+  ```
+  and test it by using the link in `Terminal 1` or go directly to http://localhost:4004/incidents/webapp/index.html
+
+
+### Step 3: Create the Extension Project
 
 Create a new folder `myExtension` in the location of your choice.
 > [!NOTE]
@@ -83,7 +106,7 @@ Note the important parts:
 - The CDS-OYSTER plugin as dependency
 - Code-extensibility turned on for local testing and debugging
 
-### Step 3: Pull the Base Model
+### Step 4: Pull the Base Model
 
 1. Pull the base model from the running application:
    ```bash
@@ -97,7 +120,7 @@ Note the important parts:
 
 This moves the base model from `.base` to a folder in `node_modules` according to the name given in the `extends` clause of `package.json`.
 
-### Step 4: Create the Extension
+### Step 5: Create the Extension
 
 1. In the `db` folder of the extension project, create a file `extension.cds` with the following content:
    ```cds
@@ -110,7 +133,7 @@ This moves the base model from `.base` to a folder in `node_modules` according t
 > [!NOTE]
 > Adding new fields to an entity will require a database deployment. The previously shown predefined extension fields already exist on the database and are repurposed later - without the need to redeploy.
 
-### Step 5: Test the Extension
+### Step 6: Test the Extension
 
 1. Push this extension to the base application:
    ```bash
@@ -119,7 +142,7 @@ This moves the base model from `.base` to a folder in `node_modules` according t
 
 2. Test it by exploring the AdminService endpoints at `http://localhost:4004`.
 
-### Step 6: Add Testing Convenience
+### Step 7: Add Testing Convenience
 
 To make testing simpler, you can use `cds add http` to create useful testing requests:
 
