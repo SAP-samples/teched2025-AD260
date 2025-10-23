@@ -38,11 +38,14 @@ First, we need to enable multitenancy (MTX) support in the base application to a
 
 You can test the setup using three distinct terminal windows. In VS Code we suggest using the split window feature to have all terminals visible simultaneously
 - **Terminal 1**  
-  Run 
+  Here, you should still be in the base-app folder. Run 
   ```sh
-  cds watch base-app --profile with-mtx
+  npm install
+  cds watch --profile with-mtx
   ``` 
   on project root level. It should report running on port **4004**.
+> [!INFO]
+> Even when multi-tenancy (mtx) is active, we allow testing the application as single tenant app for simplicity in testing. So for testing in a multi-tenant mode, we add the `with-mtx` profile.
 
 - **Terminal 2**  
   Is needed to install sidecar dependencies and run the MTX sidecar using 
@@ -53,7 +56,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   ```
   This should report for port **4005**. Please keep these two terminals running while testing the setup.
 - In **Terminal 3**  
-  You can subscribe a new tenant t1 for alice using 
+  You can subscribe a new tenant t1 using 
   ```sh
   cds subscribe t1 --to http://localhost:4005 -u yves:
   ```
@@ -112,7 +115,7 @@ Note the important parts:
 
 1. Pull the base model from the running application:
    ```bash
-   cds pull --from http://localhost:4004 -u alice:
+   cds pull --from http://localhost:4004 -u bob:
    ```
 
 2. Install dependencies:
@@ -139,7 +142,7 @@ This moves the base model from `.base` to a folder in `node_modules` according t
 
 1. Push this extension to the base application:
    ```bash
-   cds push --to localhost:4004 -u alice:
+   cds push --to localhost:4004 -u bob:
    ```
 
 2. Test it by exploring the AdminService endpoints at `http://localhost:4004`.
