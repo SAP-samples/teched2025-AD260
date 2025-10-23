@@ -50,7 +50,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
 - **Terminal 2**  
   Is needed to install sidecar dependencies and run the MTX sidecar using 
   ```sh
-  cd base-app/mtx/sidecar
+  cd mtx/sidecar
   npm install
   cds watch
   ```
