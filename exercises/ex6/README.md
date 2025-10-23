@@ -1,6 +1,6 @@
 # Exercise 6 - Bound Actions
 
-In this exercise, you will implement your first bound action using CDS-Oyster event handlers.
+In this exercise, you will implement a bound action using CDS-Oyster event handlers.
 
 ## Prerequisites
 
@@ -46,14 +46,14 @@ Just like in a normal CAP application, CDS-Oyster provides the typical API (with
 
 In addition, a subset of the CDS QL is supported, as well as calling existing actions and emitting events.
 
-This event handler is using `req.subject` (which represents a valid CQN snippet to identify a single entity instance) to update precisely one entry in the Incidents table. This is a nice convenience to avoid constructing where clauses using `req.data.Incidents_ID` and less error prone.
+This event handler is using `req.subject` (which represents a valid CQN snippet to identify a single entity instance) to update precisely one entry in the Incidents table. This is a nice convenience to avoid constructing where clauses using `req.data.Incidents_ID` and is less error prone.
 
 Notice the general nature of CDS-Oyster event handlers:
 
 - Each file needs to export a single **asynchronous** function
 - Depending on the event, the function will be called with `req` or `req, res` (e.g. after read handlers)
 - All code needs to be synchronous, `await` statements are forbidden
-- Exception are the CDS QL callbacks, which **require** asynchronous calls
+- Exceptions are the CDS QL callbacks, which **require** asynchronous calls
 
 ### Step 2: Test the Action
 
