@@ -152,7 +152,7 @@ To allow this, SAPUI5 has to be instructed to use a different storage. Instead o
 > [!WARNING]
 > This filter is not part of the development artifacts and will not be deployed. This is solely to test end user behavior and can be used for testing. To run different tests in parallel, the `SessionStorageConnector` is a better option.
 
-## Exercise 2.2 Adding an Adapt UI Functionality
+## Exercise 2.2 Adding the Adapt UI Functionality
 
 Now that personalization and the storage is working, authorized end users can also adjust the UI to their companies needs.
 
