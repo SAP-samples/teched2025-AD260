@@ -185,4 +185,4 @@ The extension demonstrates key extensibility patterns:
 - UI annotations for enhanced user experience
 - Action definitions for business operations
 
-Continue to - [Exercise 6 - Exercise 6 Description](../ex6/README.md)
+Continue to - [Exercise 6 - Bound Actions](../ex6/README.md)
