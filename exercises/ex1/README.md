@@ -61,7 +61,7 @@ Now let's run the application and explore its functionality:
 
 1. **Start the application**: Open a terminal in the project root directory and execute:
    ```shell
-   cds watch base-app
+   cds watch
    ```
    This will start your application locally and display a link to: `http://localhost:4004`.
 
@@ -81,7 +81,7 @@ Now let's run the application and explore its functionality:
 
 3. **View the extension fields**:
    - Navigate back to the Welcome page at `http://localhost:4004`
-   - In the **Service Endpoints** section, under `/odata/v4/admin`, click on **Incidents**
+   - In the **Service Endpoints** section, under `/odata/v4/processor`, click on **Incidents**
    - You'll see the predefined extension fields (`predef_field_1`, `predef_field_2`, `predef_field_3`) listed for each customer
 
 With just a simple data model and service definition, we have a fully functional CAP application!
