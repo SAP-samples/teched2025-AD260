@@ -53,7 +53,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
 - In **Terminal 3**  
   You can subscribe a new tenant t1 for alice using 
   ```sh
-  cds subscribe t1 --to http://localhost:4005 -u alice:
+  cds subscribe t1 --to http://localhost:4005 -u yves:
   ```
   and test it by using the link in `Terminal 1` or go directly to http://localhost:4004/incidents/webapp/index.html
 
