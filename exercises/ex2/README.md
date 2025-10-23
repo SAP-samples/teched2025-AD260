@@ -67,7 +67,8 @@ An authorization for the key user is done by the role `FlexKeyUser`.
 
 On the BTP CF stand alone application can also make use of SAPUI5 flexibility without relying on an integration within a Fiori Launchpad or Workzone service. To do so, the SAPUI5 flexibility for key users service can be used and must be bound as well as requests from clients have to be routed to it.
 
- ℹ️ For a later read! The [product page](https://discovery-center.cloud.sap/serviceCatalog/ui5-flexibility-for-key-users) includes links to the service capabilities as well as developer docu.
+> [!NOTE]
+> For a later read! The [product page](https://discovery-center.cloud.sap/serviceCatalog/ui5-flexibility-for-key-users) includes links to the service capabilities as well as developer docu.
 
 An authorization for the key user is done by the role `FlexKeyUser`.
 
@@ -95,43 +96,34 @@ In this exercise we aim for a BTP deployable application and thus use a service 
 
 This allows SAPUI5 to send the data to the correct endpoint.
 
-[!HINT] The URL of the endpoint is defined by the routing and has to match the route of the bound "SAPUI5 flexibility for key users" service.
+> [!NOTE]
+> The URL of the endpoint is defined by the routing and has to match the route of the bound "SAPUI5 flexibility for key users" service.
 
-[!WARNING] The correct configuration can be tested to use the `cds watch`, create a filter and which is then "save as". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
+> [!WARNING]
+> The correct configuration can be tested to use the `cds watch`, create a filter and which is then "save as". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
 
 While this allows a writing, getting the data on the early application startup also requires the `sap.ui.fl` library to be loaded.
 
-* For this an additional lib dependency has to be added to the `manifest.json` under `"sap.ui5" > "dependencies" > "libs"` the following line: `"sap.ui.fl": {}`
+* For this an additional lib dependency has to be added to the `manifest.json` under `"sap.ui5" > "dependencies" > "libs"`:
 
+Add this line to the libs section:
+```json
+"sap.ui.fl": {}
+```
+
+Complete context in manifest.json:
 ```json
 {
-    
-    ...
-
-    "sap.ui5": {
-        
-        ...
-
-        "dependencies": {
-            
-            ...
-
-            "libs": {
-                
-                ...
-
-                "sap.ui.fl": {}
-            }
-        },
-        
-        ...
-
-    },
-    
-    ...
-
+  "sap.ui5": {
+    "dependencies": {
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.fl": {}
+      }
+    }
+  }
 }
-
 ```
 
 Now the application is ready to write data as well as retrieve the data on an application startup.
@@ -142,7 +134,8 @@ Now that the setup for a deployment is done, it is time to also test the introdu
 
 To allow this, SAPUI5 has to be instructed to use a different storage. Instead of sending a REST call to write or read content, the browser's session storage can be used.
 
-[!WARNING] The session storage is for (manual and automated) testing only! A session storage is not safe for productive usage. The stored data is clearly visible until the session is closed and can be accessed. 
+> [!WARNING]
+> The session storage is for (manual and automated) testing only! A session storage is not safe for productive usage. The stored data is clearly visible until the session is closed and can be accessed. 
 
 * Copy the `index.html` and name it `index_local.html`.
 
@@ -156,7 +149,8 @@ To allow this, SAPUI5 has to be instructed to use a different storage. Instead o
 
 * Open the application and again create a filter. This filter is now part of the local storage and is also persisted between sessions.
 
-[!WARNING] This filter is not part of the development artifacts and will not be deployed. This is solely to test end user behavior and can be used for testing. To run different tests in parallel, the `SessionStorageConnector` is a better option.
+> [!WARNING]
+> This filter is not part of the development artifacts and will not be deployed. This is solely to test end user behavior and can be used for testing. To run different tests in parallel, the `SessionStorageConnector` is a better option.
 
 ## Exercise 2.2 Adding an Adapt UI Functionality
 
@@ -196,9 +190,10 @@ First create a controller extension:
 
 * Add a new custom action with an `Action ID` called `adaptUi`, a button text `Adapt UI`, a `Handler File` select `Use Existing File` and within the drop down `IncidentsList.controller`. For a Action Handler create a new `Handler Method` called `onAdaptUi`. Afterwards confirm with `Add`.
 
-![](images/002_02_01_5.png)
+![](images/02_02_01_5.png)
 
-[!HINT] In the running application now a Button is visible in the header, but pressing it will only show the predefined message.
+> [!NOTE]
+> In the running application now a Button is visible in the header, but pressing it will only show the predefined message.
 
 ![](images/02_02_01_6.png)
 
@@ -231,7 +226,8 @@ onAdaptUi: async function(oContext, aSelectedContexts) {
 
 On a button press now the method will require the needed function to start the adaptation as well as name the root control `ns.incidents::IncidentsList--fe::ListReport` to create overlays which then will be clickable for the actions offered by the controls.
 
-[!HINT] Now the key user functionality can be tested in the running application.
+> [!NOTE]
+> Now the key user functionality can be tested in the running application.
 
 ![](images/02_02_01_7.png)
 
@@ -254,7 +250,8 @@ onInit: function () {
 Now the code checks if the user has the role. To test this, open the `index.html` and check if the button is hidden. The backend call to determine the visibility resulted in an error (404) and therefore the method used in the controller extension was `false`.
 After deployment, the role has to be assigned to get the control visible as well as allow writing of such changes within the storage.
 
-[!HINT] The `SessionStorageConnector` has the flag always set to true and the button will be visible. With this setup, key user functionality can be tested.
+> [!NOTE]
+> The `SessionStorageConnector` has the flag always set to true and the button will be visible. With this setup, key user functionality can be tested.
 
 ## Summary
 
