@@ -45,9 +45,11 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   on project root level. It should report running on port **4004**.
 
 - **Terminal 2**  
-  Is needed to run the MTX sidecar using 
+  Is needed to install sidecar dependencies and run the MTX sidecar using 
   ```sh
-  cds watch base-app/mtx/sidecar
+  cd base-app/mtx/sidecar
+  npm install
+  cds watch
   ```
   This should report for port **4005**. Please keep these two terminals running while testing the setup.
 - In **Terminal 3**  
