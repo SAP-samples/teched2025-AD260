@@ -44,7 +44,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   cds watch --profile with-mtx
   ``` 
   on project root level. It should report running on port **4004**.
-> [!INFO]
+> [!HINT]
 > Even when multi-tenancy (mtx) is active, we allow testing the application as single tenant app for simplicity in testing. So for testing in a multi-tenant mode, we add the `with-mtx` profile.
 
 - **Terminal 2**  
