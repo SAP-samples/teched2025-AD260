@@ -55,7 +55,7 @@ Notice the general nature of CDS-Oyster event handlers:
 - All code needs to be synchronous, `await` statements are forbidden
 - Exceptions are the CDS QL callbacks, which **require** asynchronous calls
 
-### Adding another action
+### Step 2: Adding another action
 
 Let's create a second file with the name `on-promoteCustomer.js` in the folder `srv/ProcesorService/Incidents`.
 
@@ -73,11 +73,11 @@ module.exports = async function (req) {
 }
 ```
 
-### Step 2: Test the Action
+### Step 3: Test the Action
 
 Please use `cds watch` to test whether the action implementation works. By selecting one or more incidents, the `promote Incident` button should now change the urgency to `high`.
 
-### Step 3: Deploy the Extension
+### Step 4: Deploy the Extension
 
 Now it's time to deploy the composed extension, including the custom code handlers, to the main application.  
 Before doing so, stop the locally running extension project to avoid **port conflicts**.
@@ -112,7 +112,7 @@ At this point, you should see:
 
 You can now interact with the UI: create and update incidents, and verify that the logic behaves as expected.
 
-### Step 4: Troubleshooting
+### Step 5: Troubleshooting
 
 If this does not work as expected, please check the following:
 
