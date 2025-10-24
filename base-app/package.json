@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "dependencies": {
     "@sap/cds": ">=9",
-    "@sap/cds-mtxs": "^3",
     "express": "^4",
     "predefined-ext-fields-plugin": "file:./predefined-ext-fields-plugin"
   },
@@ -20,15 +19,5 @@
   "sapux": [
     "app/incidents"
   ],
-  "private": true,
-  "cds": {
-    "profile": "with-mtx-sidecar",
-    "requires": {
-      "[production]": {
-        "multitenancy": true
-      },
-      "toggles": true,
-      "extensibility": true
-    }
-  }
+  "private": true
 }
