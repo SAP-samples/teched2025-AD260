@@ -115,7 +115,7 @@ Note the important parts:
 
 1. Pull the base model from the running application:
    ```bash
-   cds pull --from http://localhost:4004 -u bob:
+   cds pull --from http://localhost:4005 -u bob:
    ```
 
 2. Install dependencies:
@@ -142,7 +142,7 @@ This moves the base model from `.base` to a folder in `node_modules` according t
 
 1. Push this extension to the base application:
    ```bash
-   cds push --to localhost:4004 -u bob:
+   cds push --to localhost:4005 -u bob:
    ```
 
 2. Test it by exploring the AdminService endpoints at `http://localhost:4004`.
