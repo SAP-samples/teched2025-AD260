@@ -52,6 +52,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   ```sh
   cd mtx/sidecar
   npm install
+  npm add ../../predefined-ext-fields-plugin
   cds watch
   ```
   This should report for port **4005**. Please keep these two terminals running while testing the setup.
