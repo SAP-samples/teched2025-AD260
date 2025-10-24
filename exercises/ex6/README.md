@@ -55,6 +55,24 @@ Notice the general nature of CDS-Oyster event handlers:
 - All code needs to be synchronous, `await` statements are forbidden
 - Exceptions are the CDS QL callbacks, which **require** asynchronous calls
 
+### Adding another action
+
+Let's create a second file with the name `on-promoteCustomer.js` in the folder `srv/ProcesorService/Incidents`.
+
+It should look like this:
+```js
+module.exports = async function (req) {
+
+    await this.update('CustomersProjection').with({ status: 'Gold' }).where({ ID: req.data.Customer_ID })
+
+    await this.update('Incidents').with({ urgency_code: 'H' }).where({ 
+        customer_ID: req.data.Customer_ID,
+        and : { not: { status_code: 'C' } }
+    })
+
+}
+```
+
 ### Step 2: Test the Action
 
 Please use `cds watch` to test whether the action implementation works. By selecting one or more incidents, the `promote Incident` button should now change the urgency to `high`.
