@@ -43,7 +43,7 @@ If a key user is satisfied with the changes, the draft can be promoted to a vers
 
 * Press `activate` (wand icon), provide a name and press `Confirm`.
 
-[!HINT] This was an end-to-end flow test of the key user capabilities the application now possesses. All these adaptations done with `Adapt UI` are not part of the source code and will not be deployed.
+> [!HINT] This was an end-to-end flow test of the key user capabilities the application now possesses. All these adaptations done with `Adapt UI` are not part of the source code and will not be deployed.
 
 ## Summary
 

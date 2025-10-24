@@ -99,8 +99,7 @@ This allows SAPUI5 to send the data to the correct endpoint.
 > [!NOTE]
 > The URL of the endpoint is defined by the routing and has to match the route of the bound "SAPUI5 flexibility for key users" service.
 
-> [!WARNING]
-> The correct configuration can be tested to use the `cds watch`, create a filter and which is then "save as". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
+> [!WARNING] The correct configuration can be tested to use the `cds watch`, create a new filter view by pressing the arrow next to the "Standard", select "Save As", provinding a name and press "OK". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
 
 While this allows a writing, getting the data on the early application startup also requires the `sap.ui.fl` library to be loaded.
 
@@ -235,9 +234,23 @@ On a button press now the method will require the needed function to start the a
 
 In the deployed application not every end user should have the possibility to adjust the UI for all other users. A specific role is required to do so, but the button is not yet configured to reflect this.
 
-* To add a role check, change the `onInit` method of the `ListReport.controller.js`:
+* To add a role check, change the `onInit` method of the `ListReport.controller.js` and ensure, that the `FeaturesAPI`is required at the beginning of the controller:
 
 ```js
+sap.ui.require[
+
+  ...
+
+  "sap/ui/fl/write/api/FeaturesAPI"
+], function (
+
+  ...
+
+  FeaturesAPI
+));
+
+...
+
 onInit: function () {
   const oAdaptationButton = this.getView().byId("fe::CustomAction::adaptUi"); // must match the ID of the button
   FeaturesAPI.isKeyUser().then(function (bIsKeyUser) {
