@@ -99,7 +99,8 @@ This allows SAPUI5 to send the data to the correct endpoint.
 > [!NOTE]
 > The URL of the endpoint is defined by the routing and has to match the route of the bound "SAPUI5 flexibility for key users" service.
 
-> [!WARNING] The correct configuration can be tested to use the `cds watch`, create a new filter view by pressing the arrow next to the "Standard", select "Save As", provinding a name and press "OK". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
+> [!WARNING]
+> The correct configuration can be tested to use the `cds watch`, create a new filter view by pressing the arrow next to the "Standard", select "Save As", provinding a name and press "OK". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
 
 While this allows a writing, getting the data on the early application startup also requires the `sap.ui.fl` library to be loaded.
 
