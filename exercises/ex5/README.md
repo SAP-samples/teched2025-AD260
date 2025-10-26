@@ -167,7 +167,7 @@ Instead of constantly pushing to the base application, you can test locally:
 Once you're satisfied with your changes:
 
 ```bash
-cds push --to localhost:4004 -u alice:
+cds push --to localhost:4005 -u bob:
 ```
 
 ## Summary
