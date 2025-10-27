@@ -2,6 +2,11 @@
 
 In this exercise, we will use key user extensibility in order to add an already existing field to the Fiori Elements UI.
 
+## Prerequisites
+
+Make sure you have the following installed:
+- Fiori Tools for VSCode
+
 ## Exercise 2.1 Key User and Personalization Enablement
 
 Key users are end users entitled to adapt the application at runtime for their use case. They can work in a development system or the productive system in a running application without the need to know coding or entering an IDE.
@@ -79,7 +84,7 @@ An authorization for the key user is done by the role `FlexKeyUser`.
 The first step is keeping personalization as well as other adaptation stored.
 In this exercise we aim for a BTP deployable application and thus use a service on the BTP CF.
 
-* A storage and the corresponding client side implementation can be defined by adding the parameter `data-sap-ui-flexibilityServices='[{"connector":"BtpServiceConnector", "url": "/my/flex/url"}]'` to the ui5 bootstrap of SAPUI5 within the `index.html`.
+* A storage and the corresponding client side implementation can be defined by adding the parameter `data-sap-ui-flexibilityServices='[{"connector":"BtpServiceConnector", "url": "/my/flex/url"}]'` to the ui5 bootstrap of SAPUI5 within the `/base-app/app/incidents/webapp/index.html`.
 
 ```html
 <script
@@ -98,6 +103,7 @@ This allows SAPUI5 to send the data to the correct endpoint.
 
 > [!NOTE]
 > The URL of the endpoint is defined by the routing and has to match the route of the bound "SAPUI5 flexibility for key users" service.
+> The configuration is done by a router configuration or part of a unified deployment within an MTAR-file. This is **not part of this exercise** and material for the configuration can be found [UI5 flexibility for key users docu](https://help.sap.com/docs/ui5-flexibility-for-key-users/ui5-flexibility-for-key-users/initial-setup).
 
 > [!WARNING]
 > The correct configuration can be tested to use the `cds watch`, create a new filter view by pressing the arrow next to the "Standard", select "Save As", provinding a name and press "OK". In the debugger an error is shown, that the writing failed with a 404. This is as expected, because the application is not deployed and no backend is available to receive the request.
@@ -119,7 +125,9 @@ Complete context in manifest.json:
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "sap.ui.fl": {}
+        "sap.ui.fl": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {}
       }
     }
   }
@@ -137,17 +145,17 @@ To allow this, SAPUI5 has to be instructed to use a different storage. Instead o
 > [!WARNING]
 > The session storage is for (manual and automated) testing only! A session storage is not safe for productive usage. The stored data is clearly visible until the session is closed and can be accessed. 
 
-* Copy the `index.html` and name it `index_local.html`.
+* Copy the `/base-app/app/incidents/webapp/index.html` and name it `index_local.html`.
 
 * Then adapt in the newly created file the `data-sap-ui-flexibilityServices` to `'[{"connector":"SessionStorageConnector"}]'`.
 
-* Stop the CAP server with `CTRL` + `C` and start it again.
+* Stop the CAP server in the termial with `CTRL` + `C` and start it again via `cds watch`.
 
 * After the addition of the file, the localhost now shows another application.
 
 ![](images/02_01_02_1.png)
 
-* Open the application and again create a filter. This filter is now part of the local storage and is also persisted between sessions.
+* Open the application and again create a filter. This filter is now part of the session storage and is also persisted between sessions.
 
 > [!WARNING]
 > This filter is not part of the development artifacts and will not be deployed. This is solely to test end user behavior and can be used for testing. To run different tests in parallel, the `SessionStorageConnector` is a better option.
@@ -178,7 +186,7 @@ First create a controller extension:
 
 ![](images/02_02_01_2.png)
 
-* Provide the name `ListReport` and press `Add`
+* Provide the name `IncidentsList` and press `Add`
 
 ![](images/02_02_01_3.png)
 
@@ -197,7 +205,7 @@ First create a controller extension:
 
 ![](images/02_02_01_6.png)
 
-* Change the method `onAdaptUi` in the `IncidentsList.controller.js` as well as add require needed modules:
+* Change the method `onAdaptUi` in the `/base-app/app/incidents/webapp/ext/controller/IncidentsList.controller.js` as well as add require needed modules:
 
 ```js
 sap.ui.define([
@@ -235,10 +243,10 @@ On a button press now the method will require the needed function to start the a
 
 In the deployed application not every end user should have the possibility to adjust the UI for all other users. A specific role is required to do so, but the button is not yet configured to reflect this.
 
-* To add a role check, change the `onInit` method of the `ListReport.controller.js` and ensure, that the `FeaturesAPI`is required at the beginning of the controller:
+* To add a role check, change the `onInit` method of the `/base-app/app/incidents/webapp/ext/controller/IncidentsList.controller.js` and ensure, that the `FeaturesAPI`is required at the beginning of the controller:
 
 ```js
-sap.ui.require[
+sap.ui.define[
 
   ...
 
@@ -258,10 +266,12 @@ onInit: function () {
     console.log("key user is " + bIsKeyUser);
     oAdaptationButton.setVisible(bIsKeyUser);
   });
-}
+},
+
+...
 ```
 
-Now the code checks if the user has the role. To test this, open the `index.html` and check if the button is hidden. The backend call to determine the visibility resulted in an error (404) and therefore the method used in the controller extension was `false`.
+Now the code checks if the user has the role. To test this, open the `/base-app/app/incidents/webapp/index.html` and check if the button is hidden. The backend call to determine the visibility resulted in an error (404) and therefore the method used in the controller extension was `false`.
 After deployment, the role has to be assigned to get the control visible as well as allow writing of such changes within the storage.
 
 > [!NOTE]

@@ -6,7 +6,9 @@ In this exercise, we will use key user extensibility in order to add an already 
 
 In the application, there are already fields specified but not yet shown. Customers can use these fields and add them to the UI. In this step, test the userflow:
 
-* Open the `index_local.html`, press the added `Adapt UI` button to start the adaptation
+* Open the `/base-app/app/incidents/webapp/index_local.html`
+
+* press the added `Adapt UI` button to start the adaptation
 
 * Right click the table
 
@@ -17,6 +19,8 @@ In the application, there are already fields specified but not yet shown. Custom
 * Raise the field to the top (showing it first in the table)
 
 ![](images/03_01_1.png)
+
+* Confirm the changes by pressing `OK`
 
 Now the field is added as a visible element in the Table.
 
