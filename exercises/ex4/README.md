@@ -34,11 +34,18 @@ First, we need to enable multitenancy (MTX) support in the base application to a
    ```bash
    cds add mtx
    ```
+
+3. In `base-app/mtx/sidecar/package.json` add the following under `dependencies`
+
+```json 
+... ,
+"predefined-ext-fields-plugin": "file:./../../predefined-ext-fields-plugin"
+```
 ### Step 2: Start the server using multi-tenancy
 
 You can test the setup using three distinct terminal windows. In VS Code we suggest using the split window feature to have all terminals visible simultaneously
 - **Terminal 1**  
-  Here, you should still be in the base-app folder. Run 
+  Here, you should still be in the **base-app** folder. Run 
   ```sh
   npm install
   cds watch --profile with-mtx
@@ -51,8 +58,6 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   Is needed to install sidecar dependencies and run the MTX sidecar using 
   ```sh
   cd mtx/sidecar
-  npm install
-  npm add ../../predefined-ext-fields-plugin
   cds watch
   ```
   This should report for port **4005**. Please keep these two terminals running while testing the setup.
@@ -62,7 +67,6 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   cds subscribe t1 --to http://localhost:4005 -u yves:
   ```
   and test it by using the link in `Terminal 1` or go directly to http://localhost:4004/incidents/webapp/index.html
-
 
 ### Step 3: Create the Extension Project
 
