@@ -37,10 +37,10 @@ First, we need to enable multitenancy (MTX) support in the base application to a
 
 3. In `base-app/mtx/sidecar/package.json` add the following under `dependencies`
 
-```json 
-... ,
-"predefined-ext-fields-plugin": "file:./../../predefined-ext-fields-plugin"
-```
+  ```json 
+  ... ,
+  "predefined-ext-fields-plugin": "file:./../../predefined-ext-fields-plugin"
+  ```
 ### Step 2: Start the server using multi-tenancy
 
 You can test the setup using three distinct terminal windows. In VS Code we suggest using the split window feature to have all terminals visible simultaneously
@@ -51,8 +51,8 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   cds watch --with-mtx
   ``` 
   on project root level. It should report running on port **4004**.
-> [!NOTE]
-> Even when multi-tenancy (mtx) is active, we allow testing the application as single tenant app for simplicity in testing. So for testing in a multi-tenant mode, we add the `with-mtx` profile.
+  > [!NOTE]
+  > Even when multi-tenancy (mtx) is active, we allow testing the application as single tenant app for simplicity in testing. So for testing in a multi-tenant mode, we add the `with-mtx` profile.
 
 - **Terminal 2**  
   Is needed to install sidecar dependencies and run the MTX sidecar using 
@@ -67,6 +67,24 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   cds subscribe t1 --to http://localhost:4005 -u yves:
   ```
   and test it by using the link in `Terminal 1` or go directly to http://localhost:4004/incidents/webapp/index.html
+  
+  If you get a login screen, enter the user `alice` and leave the password field empty.
+
+
+  Our application is now a **multitenant application**, where different **tenants (customers) have their own data**.
+  Let's test it:
+  
+  Create a new incident in the application.
+
+  Then, on the right terminal (Terminal 3) enter:
+    ```sh
+  cds subscribe t2 --to http://localhost:4005 -u yves:
+  ```
+  Open an incognito window in the browser (as in our regular browser we are already logged on as alice).
+  Then, navigate to http://localhost:4004/incidents/webapp/index.html and log on as `erin`, again leaving the password field empty.
+  Erin is assigned to t2 in our test user configuration. In t2 the newly created incident of t1 is not visible.
+
+  Tenants can also be extended individually, which is what we will do in the next step.
 
 ### Step 3: Create the Extension Project
 
