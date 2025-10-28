@@ -48,7 +48,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   Here, you should still be in the **base-app** folder. Run 
   ```sh
   npm install
-  cds watch --profile with-mtx
+  cds watch --with-mtx
   ``` 
   on project root level. It should report running on port **4004**.
 > [!NOTE]
@@ -58,7 +58,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   Is needed to install sidecar dependencies and run the MTX sidecar using 
   ```sh
   cd mtx/sidecar
-  cds watch
+  cds watch --with-mtx
   ```
   This should report for port **4005**. Please keep these two terminals running while testing the setup.
 - In **Terminal 3**  
@@ -97,6 +97,9 @@ Create a new folder `myExtension` in the location of your choice.
        "@cap-js/sqlite": "^2"
      },
      "cds": {
+       "server" : {
+        "port" : 4006
+       },
        "requires": {
          "code-extensibility": true
          }
