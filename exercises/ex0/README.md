@@ -25,7 +25,15 @@ Make sure you have the following installed:
 
 6. Open a terminal in VS Code (Terminal > New Terminal)
 
-7. Navigate to the base-app directory and install dependencies:
+7. Install the latest `@sap/cds-dk` version
+
+   ```bash
+   npm i -g @sap/cds-dk --prefix "C:\software\CLI\CDS"
+   ```
+
+   > The --prefix option is only needed due to the setup of the TechEd machines. If you are running this tutorial on your own machine, omit it.
+
+8. Navigate to the base-app directory and install dependencies:
    ```bash
    cd base-app
    npm install
