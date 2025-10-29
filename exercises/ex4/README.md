@@ -25,17 +25,29 @@ First, we need to enable multitenancy (MTX) support in the base application to a
 
 1. Stop the currently running server with `CTRL` + `C`
 
-1. Navigate to the base-app directory:
+2. Navigate to the base-app directory:
    ```bash
    cd base-app
    ```
 
-2. Add MTX support:
+3. Add MTX support:
    ```bash
    cds add mtx
    ```
 
-3. In `base-app/mtx/sidecar/package.json` add the following under `dependencies`
+4. Add a dependency to @sap/cds-oyster (the code extensibility we will used in exercise 6):
+   ```bash
+   npm add @sap/cds-oyster
+   ```
+
+5. In `base-app/package.json` add the following under `cds` > `requires`     
+   ```json
+   "requires": {
+      "code-extensibility": true,
+      ...
+      }
+   ```
+6. In `base-app/mtx/sidecar/package.json` add the following under `dependencies`
 
   ```json 
   ... ,
