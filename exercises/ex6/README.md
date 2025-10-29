@@ -82,7 +82,11 @@ Please use `cds watch` **in terminal 3** to test whether the action implementati
 Now it's time to deploy the composed extension, including the custom code handlers, to the main application.
 **Terminal 1** and **Terminal 2** should still be running the main application and the sidecar. If you stopped the apps, refer to exercise 4, step2.
 
-Let's push the extension from **terminal3**:
+Let's push the extension from **Terminal 3**:
+
+Stop the running server with `CTRL` + `C`.
+
+Push the extension:
 
    ```bash
    cds push --to http://localhost:4005 -u bob:
