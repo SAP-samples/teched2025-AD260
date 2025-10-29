@@ -62,7 +62,7 @@ extend ProcessorService.Incidents with columns {
 
 ### Step 3: Enhance the UI
 
-Add Fiori Elements annotations to your `db/extension.cds` file:
+Add Fiori Elements annotations by copying this snippet to the end of your `db/extension.cds` file:
 
 ```cds
 annotate ProcessorService.Incidents with @(UI : {
@@ -103,7 +103,7 @@ annotate ProcessorService.Incidents with @(UI : {
 
 ### Step 4: Add Actions
 
-Add the following actions to your `db/extension.cds` file:
+Add the following actions by copying this snippet to the end of your `db/extension.cds` file:
 
 ```cds
 extend ProcessorService.Incidents with actions {
@@ -144,16 +144,17 @@ extend ProcessorService.Incidents with actions {
 
 ### Step 5: Test the Extension Locally
 
-Instead of constantly pushing to the base application, you can test locally:
+Instead of constantly pushing to the base application, you can test locally in single-tenant mode:
 
-1. **Stop the base application** to avoid port conflicts (if running on port 4004)
+1. **Start the extension project locally**:
+  In terminal 3, run the following:
 
-2. **Start the extension project locally**:
    ```bash
    cds watch
    ```
 
-3. **Open the application** at `http://localhost:4004` and test:
+2. **Open the application** at `http://localhost:4006` and under Service Endpoints > `/odata/v4/processor` > `Fiori Preview` next to Incidents
+![Fiori Preview](images/05_01.png)
    - Navigate to the Incidents application
    - Verify the Customer Status column appears
    - Check that the action buttons are present:
