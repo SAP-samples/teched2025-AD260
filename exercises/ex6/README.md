@@ -1,6 +1,6 @@
-# Exercise 6 - Bound Actions
+# Exercise 6 - Action handlers
 
-In this exercise, you will implement a bound action using CDS-Oyster event handlers.
+In this exercise, you will implement two actions using CDS-Oyster event handlers.
 
 ## Prerequisites
 
@@ -75,35 +75,20 @@ module.exports = async function (req) {
 
 ### Step 3: Test the Action
 
-Please use `cds watch` to test whether the action implementation works. By selecting one or more incidents, the `promote Incident` button should now change the urgency to `high`.
+Please use `cds watch` **in terminal 3** to test whether the action implementation works. By selecting one or more incidents, the `promote Incident` button should now change the urgency to `high`.
 
 ### Step 4: Deploy the Extension
 
-Now it's time to deploy the composed extension, including the custom code handlers, to the main application.  
-Before doing so, stop the locally running extension project to avoid **port conflicts**.
+Now it's time to deploy the composed extension, including the custom code handlers, to the main application.
+**Terminal 1** and **Terminal 2** should still be running the main application and the sidecar. If you stopped the apps, refer to exercise 4, step2.
 
-We will start the **Incidents** app locally in multi-tenancy mode.
-For this, you'll need **three separate terminal windows**.  
-In Visual Studio Code, we recommend using the **split terminal** feature to keep all windows visible simultaneously.
+Let's push the extension from **terminal3**:
 
-1. **Terminal 1**  
-   Run `cds watch` at the root level of the project. It should report the service running on port `4004`.
-
-2. **Terminal 2**  
-   Run the MTX sidecar with:
    ```bash
-   cds watch mtx/sidecar
-   ```
-   This should report running on port `4005`.  
-   Keep Terminals 1 and 2 running during the entire testing process.
-
-3. **Terminal 3**  
-   Should be in the root of the extension project. Push the extension for tenant `t1` and user `alice` using the following command:
-   ```bash
-   cds push --to http://localhost:4005 -u alice
+   cds push --to http://localhost:4005 -u bob
    ```
 
-You can now test the deployment by opening the link from Terminal 1, or navigating directly to:  
+You can now test the deployment by navigating directly to:  
 [http://localhost:4004/incidents/webapp/index.html](http://localhost:4004/incidents/webapp/index.html)
 
 At this point, you should see:
