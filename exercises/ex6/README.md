@@ -57,7 +57,7 @@ Notice the general nature of CDS-Oyster event handlers:
 
 ### Step 2: Adding another action
 
-Let's create a second file with the name `on-promoteCustomer.js` in the folder `srv/ProcesorService/Incidents`.
+Let's create a second file with the name `on-promoteCustomer.js` in the folder `srv/ProcessorService/Incidents`.
 
 It should look like this:
 ```js
