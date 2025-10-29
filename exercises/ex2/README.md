@@ -246,7 +246,7 @@ In the deployed application not every end user should have the possibility to ad
 * To add a role check, change the `onInit` method of the `/base-app/app/incidents/webapp/ext/controller/IncidentsList.controller.js` and ensure, that the `FeaturesAPI`is required at the beginning of the controller:
 
 ```js
-sap.ui.define[
+sap.ui.define([
 
   ...
 
