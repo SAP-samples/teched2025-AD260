@@ -166,6 +166,8 @@ Instead of constantly pushing to the base application, you can test locally in s
 ### Step 6: Push the Complete Extension
 
 Once you're satisfied with your changes:
+Stop the server in terminal 3 with `CTRL` + `C`.
+Push the extension with:
 
 ```bash
 cds push --to localhost:4005 -u bob:
