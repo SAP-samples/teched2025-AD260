@@ -85,7 +85,7 @@ Now it's time to deploy the composed extension, including the custom code handle
 Let's push the extension from **terminal3**:
 
    ```bash
-   cds push --to http://localhost:4005 -u bob
+   cds push --to http://localhost:4005 -u bob:
    ```
 
 You can now test the deployment by navigating directly to:  
