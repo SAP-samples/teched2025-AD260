@@ -109,10 +109,9 @@ If this does not work as expected, please check the following:
 
 ## Summary
 
-You have successfully implemented a bound action using CDS-Oyster event handlers. You learned:
-- How to create event handlers with proper file naming conventions
-- How to use the CDS-Oyster API for entity updates
-- How to debug event handlers using VS Code
-- The differences between CDS-Oyster and standard CAP event handlers
+This concludes the TechEd hands-on tutorials.
+We have extended an application in multiple ways and layers:
 
-Continue to - [Exercise 7 - Summary](../ex7/README.md)
+- through UI flex: Key users adapt the application. By using predefined extension fields, no changes on the CAP service and database layers are required. The extension "lives" in the extensibility service
+- with CAP extensibility: An extension adding additional fields to entities, new entities, extending services, adding annotations (including UI annotations) and many more
+- with the oyster sandbox: Adding custom handlers to an extension
