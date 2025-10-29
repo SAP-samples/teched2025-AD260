@@ -80,7 +80,7 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
     ```sh
   cds subscribe t2 --to http://localhost:4005 -u yves:
   ```
-  Open an incognito window in the browser (as in our regular browser we are already logged on as alice).
+  Open an incognito window in the browser (as in our regular browser we are already logged on as alice, who is assigned to tenant t1).
   Then, navigate to http://localhost:4004/incidents/webapp/index.html and log on as `erin`, again leaving the password field empty.
   Erin is assigned to t2 in our test user configuration. In t2 the newly created incident of t1 is not visible.
 
@@ -88,11 +88,11 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
 
 ### Step 3: Create the Extension Project
 
-Create a new folder `myExtension` in the location of your choice.
+Create a new folder `myExtension` on the root level of the project (same level as base-app).
 > [!NOTE]
 > An **Extension Project** is a normal CAP project and can be run locally just like any other CAP application. The only difference is that such projects do not have their own data model, but pull a `base model` from the host application in order to extend it.
 
-1. Using a terminal, navigate to your new folder and run:
+1. Using **terminal 3**, navigate to your new folder (if you are in base-app this means `cd ..` and `cd myExtension`) and run:
    ```bash
    cds init
    ```
@@ -173,18 +173,17 @@ This moves the base model from `.base` to a folder in `node_modules` according t
 
 2. Test it by exploring the AdminService endpoints at `http://localhost:4004`.
 
-### Step 7: Add Testing Convenience
+### Step 7: Test the changes
+In your browser (**not!** in the incognito window), request the customer data
+http://localhost:4004/odata/v4/admin/Customers
+and select the "pretty print" checkbox.
 
-To make testing simpler, you can use `cds add http` to create useful testing requests:
+You should see `status : Silver` as an element on each customer.
 
-```bash
-cds add http
-```
+This extension has been pushed to tenant1, if you run the same test in tenant2, you will not see this field.
+The user `bob` is assigned as cds.ExtensionDeveloper in tenant1, so `cds push` pushed the extension there.
 
-This creates files in the `test/http` folder. If you're using VS Code, the `REST Client` extension allows you to run the requests directly from the editor.
-
-> [!TIP]
-> For testing changes on the data model, the AdminService tests are more convenient since there's no draft support enabled there.
+In the next exercieses we will also add this new field to the UI as well as create actions to promote customers and incidents.
 
 ## Summary
 
