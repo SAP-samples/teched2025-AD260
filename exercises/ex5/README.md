@@ -55,6 +55,7 @@ extend ProcessorService.Incidents with columns {
 
 1. Copy the `db/data` folder from the base incidents application to the `test/data` folder in your extension project:
    ```bash
+   mkdir test
    cp -r ../base-app/db/data ./test/
    ```
 
