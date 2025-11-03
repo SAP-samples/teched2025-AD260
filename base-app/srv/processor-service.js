@@ -6,8 +6,8 @@ class ProcessorService extends cds.ApplicationService {
     const { Incidents } = this.entities
 
     this.before ('UPDATE', Incidents, async req => {
-      if (!req.subject.ref?.where) return
-      let closed = await SELECT.one(1) .from (req.subject) .where `status.code = 'C'`
+      if (!req.subject.ref[0].where) return
+      let closed = await SELECT.one.from (req.subject) .where `status.code = 'C'`.and (req.query.UPDATE.where)
       if (closed) req.reject `Can't modify a closed incident!`
     })
 
