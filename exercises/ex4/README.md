@@ -40,14 +40,14 @@ First, we need to enable multitenancy (MTX) support in the base application to a
    npm add @sap/cds-oyster
    ```
 
-5. In `base-app/package.json` add the following under `cds` > `requires`     
+5. In `base-app/package.json` add the following under `cds` > `requires`:
    ```json
    "requires": {
       "code-extensibility": true,
       ...
       }
    ```
-6. In `base-app/mtx/sidecar/package.json` add the following under `dependencies`
+6. In `base-app/mtx/sidecar/package.json` add the following under `dependencies`:
 
   ```json 
   ... ,
@@ -57,9 +57,9 @@ First, we need to enable multitenancy (MTX) support in the base application to a
 
   as well as under `cds` > `requires`     
    ```json
+   ...,
    "requires": {
-      "code-extensibility": true,
-      ...
+      "code-extensibility": true
       }
    ```
 ### Step 2: Start the server using multi-tenancy
@@ -76,13 +76,15 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   > Even when multi-tenancy (mtx) is active, we allow testing the application as single tenant app for simplicity in testing. So for testing in a multi-tenant mode, we add the `with-mtx` profile.
 
 - **Terminal 2**  
+  Split the terminal by clicking into the first terminal and pressing `CTRL` + `Shift` + `5`.
   Is needed to install sidecar dependencies and run the MTX sidecar using 
   ```sh
   cd mtx/sidecar
   cds watch --with-mtx
   ```
   This should report for port **4005**. Please keep these two terminals running while testing the setup.
-- In **Terminal 3**  
+- **Terminal 3**  
+  Split the terminal by clicking into the **second** terminal and pressing `CTRL` + `Shift` + `5`.
   You can subscribe a new tenant t1 using 
   ```sh
   cds subscribe t1 --to http://localhost:4005 -u yves:
