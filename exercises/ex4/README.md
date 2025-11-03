@@ -51,8 +51,17 @@ First, we need to enable multitenancy (MTX) support in the base application to a
 
   ```json 
   ... ,
+  "@sap/cds-oyster": "^0.2.1",
   "predefined-ext-fields-plugin": "file:./../../predefined-ext-fields-plugin"
   ```
+
+  as well as under `cds` > `requires`     
+   ```json
+   "requires": {
+      "code-extensibility": true,
+      ...
+      }
+   ```
 ### Step 2: Start the server using multi-tenancy
 
 You can test the setup using three distinct terminal windows. In VS Code we suggest using the split window feature to have all terminals visible simultaneously
