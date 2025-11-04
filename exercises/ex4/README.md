@@ -83,6 +83,9 @@ You can test the setup using three distinct terminal windows. In VS Code we sugg
   cds watch --with-mtx
   ```
   This should report for port **4005**. Please keep these two terminals running while testing the setup.
+
+  > [!WARNING]
+  > **Keep terminal 1 and 2 running** for the remainder of the exercises, only use terminal 3 for any commands from now on!
 - **Terminal 3**  
   Split the terminal by clicking into the **second** terminal and pressing `CTRL` + `Shift` + `5`.
   You can subscribe a new tenant t1 using 

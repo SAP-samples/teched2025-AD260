@@ -12,7 +12,9 @@ Make sure you have the following installed:
 
 1. Open Visual Studio Code
 
-2. On the Welcome screen, click on **Clone Git Repository**
+2. Go to `View` > `Explorer`. In the explorer view, click on **Clone Git Repository**.
+
+   Close the `CHAT` pane on the right side of VSCode
 
 3. Enter the repository URL:
    ```
