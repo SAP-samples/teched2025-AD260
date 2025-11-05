@@ -155,7 +155,7 @@ To allow this, SAPUI5 has to be instructed to use a different storage. Instead o
 
 ![](images/02_01_02_1.png)
 
-* Open the application and again create a filter. This filter is now part of the session storage and is also persisted between sessions.
+* Open the application and again create a filter. This filter is now part of the session storage and is also will stay for the time of the session.
 
 > [!WARNING]
 > This filter is not part of the development artifacts and will not be deployed. This is solely to test end user behavior and can be used for testing. To run different tests in parallel, the `SessionStorageConnector` is a better option.
